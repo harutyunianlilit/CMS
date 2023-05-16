@@ -11,6 +11,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 
+
+
 const routes: Routes = [
   { path: '', component: PagesListComponent },
 ];
@@ -26,7 +28,8 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+
 
   ],
   providers: [

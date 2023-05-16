@@ -1,9 +1,9 @@
 <ul>
-  <ng-template *ngFor="let page of pagesObservable | async" >
+  <ng-container *ngFor="let page of pagesObservable | async">
     <div>
-      <h3>{{page.title}}</h3>
-      <p>{{page.description}}</p>
-      <div><a href="{{page.url}}">Go to Page</a></div>
+      <h3>{{ page.title }}</h3>
+      <p>{{ page.description }}</p>
+      <div><a href="{{ page.url }}">Go to Page</a></div>
     </div>
-  </ng-template>
+  </ng-container>
 </ul>

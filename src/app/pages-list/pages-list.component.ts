@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
+import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'pages-list',
@@ -14,11 +15,14 @@ export class PagesListComponent implements OnInit {
 
   constructor(private db: AngularFireDatabase) { }
 
-ngOnInit() {
-  this.pagesObservable = this.getPages('./pages');
-}
+  ngOnInit(): void {
 
-getPages(listPath: string): Observable<any[]> {
-  return this.db.list<any[]>(listPath).valueChanges();
-}
+    this.getPages('pages').subscribe(pages => {
+      console.log(pages);
+    });
+  }
+
+  getPages(listPath: string): Observable<any[]> {
+    return this.db.list<any[]>(listPath).valueChanges();
+  }
 }

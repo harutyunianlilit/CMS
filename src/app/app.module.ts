@@ -5,23 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireModule } from '@angular/fire/compat';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginPageComponent } from './login-page/login-page.component';
 
-
-
-
-
-const routes: Routes = [
-  { path: '', component: PagesListComponent },
-];
+const routes: Routes = [{ path: '', component: PagesListComponent },
+{ path: 'login', component: LoginPageComponent },];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PagesListComponent
-  ],
+  declarations: [AppComponent, PagesListComponent, LoginPageComponent],
   imports: [
     RouterModule.forRoot(routes),
     CommonModule,
@@ -29,11 +22,8 @@ const routes: Routes = [
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-
-
   ],
-  providers: [
-  ],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
